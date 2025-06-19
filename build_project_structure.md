@@ -49,8 +49,8 @@ python src/utils/validation.py
 # Or use the script
 chmod +x scripts/validate.sh
 ./scripts/validate.sh
-Run cleanup:
 
+Run cleanup:
 # Dry run first (recommended)
 python scripts/cleanup.py --dry-run
 
