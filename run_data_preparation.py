@@ -16,7 +16,9 @@ def main():
     
     try:
         # Import after adding to path
+        print("Importing AWSConfig...")
         from config.aws_config import AWSConfig
+        print("Importing DataIngestion...")
         from data_preparation.data_ingestion import DataIngestion
         
         # Initialize AWS configuration
@@ -45,7 +47,7 @@ def main():
             print(f"📍 Glue database: {aws_config.glue_database}")
             
             # Show some metrics
-            metrics = ingestion.monitor_ingestion_performance('raw/transactions/year=2023/month=1/transactions.parquet')
+            metrics = ingestion.monitor_ingestion_performance(year=2023,month=1)
             if metrics:
                 print(f"📊 Sample metrics: {metrics}")
             

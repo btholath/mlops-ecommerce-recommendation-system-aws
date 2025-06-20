@@ -27,12 +27,13 @@ Real-world Exam Scenarios:
  Performance monitoring and optimization
  AWS Glue integration for data discovery
 """
+import traceback
 import boto3
 import pandas as pd
 import json
 import awswrangler as wr
 from datetime import datetime, timedelta
-from typing import List, Dict, Optional
+from typing import List, Dict, Optional, Any  # ✅ Add Any here
 import logging
 from pathlib import Path
 import numpy as np
@@ -109,7 +110,7 @@ class DataIngestion:
                 'price': round(np.random.uniform(10, 500), 2),
                 'rating': round(np.random.uniform(1, 5), 1),
                 'num_reviews': np.random.randint(0, 1000),
-                'in_stock': np.random.choice([True, False], p=[0.85, 0.15]),
+                'in_stock': bool(np.random.choice([True, False], p=[0.85, 0.15])),
                 'created_date': (datetime.now() - timedelta(days=np.random.randint(1, 1095))).isoformat(),
                 'attributes': {
                     'color': np.random.choice(['Red', 'Blue', 'Green', 'Black', 'White']),
@@ -305,6 +306,7 @@ class DataIngestion:
                 wr.s3.to_parquet(
                     df=df,
                     path=s3_path,
+                    dataset=True,
                     partition_cols=['year', 'month'],
                     boto3_session=self.aws_config.session
                 )
@@ -472,34 +474,54 @@ class DataIngestion:
             logger.error(f"Failed to ingest sample data: {str(e)}")
             return False
 
-    def monitor_ingestion_performance(self, s3_key: str) -> Dict[str, Any]:
+    def monitor_ingestion_performance(self, year: Optional[int] = None, month: Optional[int] = None) -> Dict[str, Any]:
         """
-        Monitor data ingestion performance and provide metrics
-        Demonstrates troubleshooting capacity and scalability
+        Monitors the first object under a given S3 prefix with partitioned year/month and returns metrics
         """
+        #traceback.print_stack()
+        if year is None or month is None:
+            raise ValueError("Both `year` and `month` must be provided")
+
         try:
-            s3_path = self.aws_config.get_s3_path(s3_key)
-            
-            # Get S3 object metadata
-            response = self.s3_client.head_object(
+            print(f'year = {year}')
+            print(f'month = {month}')
+            # Build dynamic prefix
+            prefix = f'raw/transactions/transactions.parquet/year={year}/month={month}/'
+            print("Using prefix:", prefix)
+
+
+            response = self.s3_client.list_objects_v2(
                 Bucket=self.aws_config.s3_bucket,
-                Key=s3_key
+                Prefix=prefix
             )
-            
+
+            if 'Contents' not in response or len(response['Contents']) == 0:
+                logger.warning(f"No objects found under {prefix}")
+                return {}
+
+            first_key = response['Contents'][0]['Key']
+            metadata = self.s3_client.head_object(
+                Bucket=self.aws_config.s3_bucket,
+                Key=first_key
+            )
+
             metrics = {
-                'file_size_mb': response['ContentLength'] / (1024 * 1024),
-                'last_modified': response['LastModified'],
-                'storage_class': response.get('StorageClass', 'STANDARD'),
-                'server_side_encryption': response.get('ServerSideEncryption'),
-                'metadata': response.get('Metadata', {})
+                'file_key': first_key,
+                'file_size_mb': metadata['ContentLength'] / (1024 * 1024),
+                'last_modified': metadata['LastModified'],
+                'storage_class': metadata.get('StorageClass', 'STANDARD'),
+                'encryption': metadata.get('ServerSideEncryption', 'None'),
+                'metadata': metadata.get('Metadata', {})
             }
-            
-            logger.info(f"Ingestion metrics for {s3_key}: {metrics}")
+
+            logger.info(f"Ingestion metrics for {first_key}: {metrics}")
             return metrics
-            
+
         except Exception as e:
             logger.error(f"Failed to get ingestion metrics: {str(e)}")
             return {}
+
+
 
 # Usage example
 if __name__ == "__main__":
@@ -516,7 +538,9 @@ if __name__ == "__main__":
         print("✅ Data ingestion completed successfully!")
         
         # Monitor performance
-        metrics = ingestion.monitor_ingestion_performance('raw/transactions/transactions.parquet')
+        # Monitor performance for January 2023
+        metrics = ingestion.monitor_ingestion_performance(year=2023, month=1)
+
         print(f"📊 Ingestion metrics: {metrics}")
     else:
         print("❌ Data ingestion failed!")
