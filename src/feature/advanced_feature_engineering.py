@@ -1,3 +1,5 @@
+# src/feature/advanced_feature_engineering.py
+
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -7,6 +9,8 @@ import warnings
 import os
 
 warnings.filterwarnings('ignore')
+
+# Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
@@ -16,7 +20,10 @@ def generate_polynomial_features(df: pd.DataFrame, cols: list, degree: int = 2, 
     poly = PolynomialFeatures(degree=degree, include_bias=False, interaction_only=interaction_only)
     poly_array = poly.fit_transform(df[cols])
     poly_names = poly.get_feature_names_out(cols)
-    
+
+    # Avoid name collision with original columns
+    poly_names = [f"{name}_poly" for name in poly_names]
+
     df_poly = pd.DataFrame(poly_array, columns=poly_names, index=df.index)
     logger.debug(f"Polynomial features created: {poly_names}")
     return pd.concat([df, df_poly], axis=1)
@@ -24,28 +31,32 @@ def generate_polynomial_features(df: pd.DataFrame, cols: list, degree: int = 2, 
 
 def apply_binning(df: pd.DataFrame) -> pd.DataFrame:
     logger.info("Applying binning to age and income")
+    
     df['age_bins'] = pd.cut(df['age'], bins=5, labels=['Very Young', 'Young', 'Middle', 'Mature', 'Senior'])
     df['income_quartiles'] = pd.qcut(df['income'], q=4, labels=['Q1', 'Q2', 'Q3', 'Q4'])
+    
     return df
+
 
 
 def apply_log_transform(df: pd.DataFrame, column: str = 'income') -> pd.DataFrame:
     logger.info("Applying log transformation to income")
-    df['income_log'] = np.log1p(df[column])  # Handles zeros
+    df['income_log'] = np.log1p(df[column])  # log1p handles zeros safely
     return df
 
 
 def create_feature_interactions(df: pd.DataFrame) -> pd.DataFrame:
     logger.info("Creating interaction features")
-    df['age_income_ratio'] = df['age'] / (df['income'] / 1000 + 1e-9)  # prevent division by zero
+    df['age_income_ratio'] = df['age'] / (df['income'] / 1000 + 1e-9)  # Prevent division by zero
     df['credit_age_interaction'] = df['credit_score'] * df['age']
     return df
+
 
 def visualize_transformations(df: pd.DataFrame, save_dir: str = "src/feature", filename: str = "feature_transformations.png"):
     logger.info("Visualizing and saving feature transformations")
 
-    # Ensure the directory exists
     os.makedirs(save_dir, exist_ok=True)
+    file_path = os.path.join(save_dir, filename)
 
     fig, axes = plt.subplots(1, 3, figsize=(15, 5))
 
@@ -66,29 +77,27 @@ def visualize_transformations(df: pd.DataFrame, save_dir: str = "src/feature", f
     axes[2].tick_params(axis='x', rotation=45)
 
     plt.tight_layout()
-
-    # Save to file
-    file_path = os.path.join(save_dir, filename)
     plt.savefig(file_path)
     plt.close()
 
     logger.info(f"Saved transformation chart to {file_path}")
 
 
-
-def run_advanced_feature_engineering(df: pd.DataFrame) -> pd.DataFrame:
+def run_advanced_feature_engineering(df: pd.DataFrame, chart_path: str = "src/feature/feature_transformations.png") -> pd.DataFrame:
     df = generate_polynomial_features(df, ['age', 'credit_score'])
     df = apply_binning(df)
     df = apply_log_transform(df)
     df = create_feature_interactions(df)
-    visualize_transformations(df)
+    visualize_transformations(df, filename=os.path.basename(chart_path), save_dir=os.path.dirname(chart_path))
     logger.info("Advanced feature engineering complete")
     return df
 
 
 # Entry point for testing
 if __name__ == "__main__":
-    # Sample data (replace with real data as needed)
+    logging.getLogger().setLevel(logging.DEBUG)
+
+    # Generate sample data
     np.random.seed(42)
     sample_data = {
         'age': np.random.normal(35, 10, 1000),
