@@ -1,0 +1,19 @@
+aws:
+  region: us-east-1
+  bucket: mlops-ecommerce-data-prod-btholath
+  
+data:
+  raw_data_prefix: raw-data
+  processed_data_prefix: processed-data
+  feature_store_prefix: feature-store
+  
+feature_store:
+  customer_features_group: customer-features
+  product_features_group: product-features
+  interaction_features_group: interaction-features
+  
+model:
+  training_instance_type: ml.m5.large
+  inference_instance_type: ml.m5.large
+  max_depth: 6
+  num_round: 100

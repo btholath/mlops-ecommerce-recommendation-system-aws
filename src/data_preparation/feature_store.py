@@ -1,3 +1,4 @@
+# 5. SageMaker Feature Store Integration
 # src/data_preparation/feature_store.py
 import boto3
 import pandas as pd
