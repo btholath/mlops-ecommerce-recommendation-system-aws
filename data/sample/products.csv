@@ -1,0 +1,501 @@
+product_id,category,price,product_description
+PROD_000000,Electronics,335.1265610175916,Sample product description for product 0
+PROD_000001,Clothing,361.38907855137484,Sample product description for product 1
+PROD_000002,Clothing,448.825795584601,Sample product description for product 2
+PROD_000003,Home & Garden,163.8002574923634,Sample product description for product 3
+PROD_000004,Electronics,225.62844278960537,Sample product description for product 4
+PROD_000005,Clothing,100.46990410021091,Sample product description for product 5
+PROD_000006,Clothing,305.8605260452571,Sample product description for product 6
+PROD_000007,Home & Garden,417.16509381698353,Sample product description for product 7
+PROD_000008,Sports,370.1136652234982,Sample product description for product 8
+PROD_000009,Electronics,67.29253240744183,Sample product description for product 9
+PROD_000010,Sports,251.48159642108405,Sample product description for product 10
+PROD_000011,Clothing,77.17383445859069,Sample product description for product 11
+PROD_000012,Electronics,90.55870924865057,Sample product description for product 12
+PROD_000013,Electronics,201.15891499728622,Sample product description for product 13
+PROD_000014,Electronics,32.17210261925505,Sample product description for product 14
+PROD_000015,Home & Garden,369.17005253908536,Sample product description for product 15
+PROD_000016,Home & Garden,294.89438173519005,Sample product description for product 16
+PROD_000017,Sports,412.280698476579,Sample product description for product 17
+PROD_000018,Books,211.31997500184326,Sample product description for product 18
+PROD_000019,Clothing,170.1294058703109,Sample product description for product 19
+PROD_000020,Electronics,50.53967941559868,Sample product description for product 20
+PROD_000021,Books,402.4805431976488,Sample product description for product 21
+PROD_000022,Sports,58.381231372506264,Sample product description for product 22
+PROD_000023,Sports,237.35103210177482,Sample product description for product 23
+PROD_000024,Books,490.47843125975453,Sample product description for product 24
+PROD_000025,Sports,120.87487290013391,Sample product description for product 25
+PROD_000026,Books,301.4752159559357,Sample product description for product 26
+PROD_000027,Electronics,352.85555098874335,Sample product description for product 27
+PROD_000028,Books,332.77164297624086,Sample product description for product 28
+PROD_000029,Home & Garden,119.30041015595087,Sample product description for product 29
+PROD_000030,Clothing,396.8512262277856,Sample product description for product 30
+PROD_000031,Sports,130.65963887559406,Sample product description for product 31
+PROD_000032,Home & Garden,491.94793119169486,Sample product description for product 32
+PROD_000033,Electronics,25.57145733508898,Sample product description for product 33
+PROD_000034,Clothing,221.30459619786336,Sample product description for product 34
+PROD_000035,Clothing,34.67126821498309,Sample product description for product 35
+PROD_000036,Home & Garden,23.352505855899405,Sample product description for product 36
+PROD_000037,Electronics,234.38520727267368,Sample product description for product 37
+PROD_000038,Sports,310.845450099364,Sample product description for product 38
+PROD_000039,Electronics,77.5637819844451,Sample product description for product 39
+PROD_000040,Clothing,186.01228602151826,Sample product description for product 40
+PROD_000041,Sports,375.13795273111106,Sample product description for product 41
+PROD_000042,Books,181.90136357415764,Sample product description for product 42
+PROD_000043,Electronics,170.80794657082987,Sample product description for product 43
+PROD_000044,Clothing,86.45754755658868,Sample product description for product 44
+PROD_000045,Electronics,185.58398176912013,Sample product description for product 45
+PROD_000046,Sports,422.0452680974245,Sample product description for product 46
+PROD_000047,Sports,292.4714944032994,Sample product description for product 47
+PROD_000048,Sports,198.45942722959643,Sample product description for product 48
+PROD_000049,Electronics,145.1211281762278,Sample product description for product 49
+PROD_000050,Books,18.210589201267382,Sample product description for product 50
+PROD_000051,Sports,467.5372172707203,Sample product description for product 51
+PROD_000052,Electronics,216.17298886530364,Sample product description for product 52
+PROD_000053,Clothing,26.00293978440298,Sample product description for product 53
+PROD_000054,Sports,162.78304710832663,Sample product description for product 54
+PROD_000055,Books,331.6407057153219,Sample product description for product 55
+PROD_000056,Clothing,172.73379382098105,Sample product description for product 56
+PROD_000057,Electronics,360.2291054575335,Sample product description for product 57
+PROD_000058,Sports,119.75144747388977,Sample product description for product 58
+PROD_000059,Home & Garden,67.01565773060298,Sample product description for product 59
+PROD_000060,Books,389.05032984805297,Sample product description for product 60
+PROD_000061,Home & Garden,349.73422533000627,Sample product description for product 61
+PROD_000062,Books,183.78644044269058,Sample product description for product 62
+PROD_000063,Home & Garden,343.8629764882609,Sample product description for product 63
+PROD_000064,Clothing,418.48556513283444,Sample product description for product 64
+PROD_000065,Sports,224.70659116651407,Sample product description for product 65
+PROD_000066,Books,481.5081088384868,Sample product description for product 66
+PROD_000067,Books,183.89986490841147,Sample product description for product 67
+PROD_000068,Sports,270.5139016445967,Sample product description for product 68
+PROD_000069,Sports,44.35298842421591,Sample product description for product 69
+PROD_000070,Home & Garden,282.60072355596884,Sample product description for product 70
+PROD_000071,Home & Garden,454.55198273463884,Sample product description for product 71
+PROD_000072,Home & Garden,215.39960919203946,Sample product description for product 72
+PROD_000073,Home & Garden,263.9553264593467,Sample product description for product 73
+PROD_000074,Clothing,282.9498515047672,Sample product description for product 74
+PROD_000075,Books,138.54805372266338,Sample product description for product 75
+PROD_000076,Sports,419.8842604028364,Sample product description for product 76
+PROD_000077,Home & Garden,459.04606682071244,Sample product description for product 77
+PROD_000078,Clothing,165.12751235523908,Sample product description for product 78
+PROD_000079,Books,54.77331138160051,Sample product description for product 79
+PROD_000080,Clothing,31.0956773306776,Sample product description for product 80
+PROD_000081,Sports,219.94437288590976,Sample product description for product 81
+PROD_000082,Home & Garden,227.51287783675667,Sample product description for product 82
+PROD_000083,Sports,332.44694209199815,Sample product description for product 83
+PROD_000084,Clothing,126.20078832907849,Sample product description for product 84
+PROD_000085,Home & Garden,195.72983783768717,Sample product description for product 85
+PROD_000086,Clothing,423.6640393902101,Sample product description for product 86
+PROD_000087,Clothing,261.90676685011726,Sample product description for product 87
+PROD_000088,Sports,451.77567259066313,Sample product description for product 88
+PROD_000089,Books,284.1086586064049,Sample product description for product 89
+PROD_000090,Clothing,13.125731269229433,Sample product description for product 90
+PROD_000091,Electronics,351.3806046040068,Sample product description for product 91
+PROD_000092,Home & Garden,124.6094964213797,Sample product description for product 92
+PROD_000093,Books,179.44498822110825,Sample product description for product 93
+PROD_000094,Books,473.91055989919795,Sample product description for product 94
+PROD_000095,Home & Garden,197.3036034689546,Sample product description for product 95
+PROD_000096,Books,232.65754569517688,Sample product description for product 96
+PROD_000097,Clothing,22.62710339453206,Sample product description for product 97
+PROD_000098,Home & Garden,103.65472333995945,Sample product description for product 98
+PROD_000099,Electronics,221.1821119412028,Sample product description for product 99
+PROD_000100,Books,469.8795939018339,Sample product description for product 100
+PROD_000101,Clothing,315.14916758752213,Sample product description for product 101
+PROD_000102,Sports,160.53604434042273,Sample product description for product 102
+PROD_000103,Electronics,88.51054447848809,Sample product description for product 103
+PROD_000104,Sports,287.05578412779374,Sample product description for product 104
+PROD_000105,Electronics,400.6334255635938,Sample product description for product 105
+PROD_000106,Clothing,51.22255450709759,Sample product description for product 106
+PROD_000107,Clothing,176.86696938514947,Sample product description for product 107
+PROD_000108,Electronics,35.671734841482,Sample product description for product 108
+PROD_000109,Books,305.200226563628,Sample product description for product 109
+PROD_000110,Clothing,47.63564612394783,Sample product description for product 110
+PROD_000111,Books,21.616799285814007,Sample product description for product 111
+PROD_000112,Sports,474.6432535171389,Sample product description for product 112
+PROD_000113,Electronics,123.42285474499607,Sample product description for product 113
+PROD_000114,Clothing,463.96726099853055,Sample product description for product 114
+PROD_000115,Clothing,464.18900970224297,Sample product description for product 115
+PROD_000116,Books,29.301998509481507,Sample product description for product 116
+PROD_000117,Electronics,14.746572543074192,Sample product description for product 117
+PROD_000118,Books,24.03968951305071,Sample product description for product 118
+PROD_000119,Clothing,473.91045723511456,Sample product description for product 119
+PROD_000120,Electronics,395.81225949314376,Sample product description for product 120
+PROD_000121,Clothing,298.2925882817451,Sample product description for product 121
+PROD_000122,Sports,287.44535771878213,Sample product description for product 122
+PROD_000123,Clothing,40.32399382343287,Sample product description for product 123
+PROD_000124,Books,357.62504367064764,Sample product description for product 124
+PROD_000125,Home & Garden,218.7994065965931,Sample product description for product 125
+PROD_000126,Books,404.76791462803754,Sample product description for product 126
+PROD_000127,Sports,165.60174413605586,Sample product description for product 127
+PROD_000128,Home & Garden,410.479602984486,Sample product description for product 128
+PROD_000129,Sports,54.05895998125412,Sample product description for product 129
+PROD_000130,Home & Garden,230.52873331885039,Sample product description for product 130
+PROD_000131,Sports,316.9639396416943,Sample product description for product 131
+PROD_000132,Sports,50.9272081932092,Sample product description for product 132
+PROD_000133,Clothing,334.7701743627636,Sample product description for product 133
+PROD_000134,Home & Garden,251.34233655000173,Sample product description for product 134
+PROD_000135,Sports,366.4893228102965,Sample product description for product 135
+PROD_000136,Home & Garden,349.96472291403177,Sample product description for product 136
+PROD_000137,Home & Garden,89.07000561030773,Sample product description for product 137
+PROD_000138,Clothing,112.20830019311485,Sample product description for product 138
+PROD_000139,Sports,382.4788555971779,Sample product description for product 139
+PROD_000140,Home & Garden,278.2332717860657,Sample product description for product 140
+PROD_000141,Electronics,141.40544019500751,Sample product description for product 141
+PROD_000142,Home & Garden,209.78072762596037,Sample product description for product 142
+PROD_000143,Clothing,37.77341176125935,Sample product description for product 143
+PROD_000144,Home & Garden,296.5709295275522,Sample product description for product 144
+PROD_000145,Books,351.6102091476104,Sample product description for product 145
+PROD_000146,Sports,130.79475376261166,Sample product description for product 146
+PROD_000147,Sports,178.9606277956232,Sample product description for product 147
+PROD_000148,Home & Garden,448.8880726906421,Sample product description for product 148
+PROD_000149,Home & Garden,69.83464280290109,Sample product description for product 149
+PROD_000150,Books,211.5389463124533,Sample product description for product 150
+PROD_000151,Home & Garden,339.4680832129348,Sample product description for product 151
+PROD_000152,Electronics,79.14272107046203,Sample product description for product 152
+PROD_000153,Home & Garden,61.7398575285536,Sample product description for product 153
+PROD_000154,Sports,86.59531564734182,Sample product description for product 154
+PROD_000155,Books,186.6325075193614,Sample product description for product 155
+PROD_000156,Clothing,27.12023073893434,Sample product description for product 156
+PROD_000157,Home & Garden,49.80252105526961,Sample product description for product 157
+PROD_000158,Clothing,227.81884399457823,Sample product description for product 158
+PROD_000159,Home & Garden,488.86716695755916,Sample product description for product 159
+PROD_000160,Books,293.1254546230315,Sample product description for product 160
+PROD_000161,Sports,322.57191853095117,Sample product description for product 161
+PROD_000162,Sports,386.3226633034727,Sample product description for product 162
+PROD_000163,Books,211.48333317605062,Sample product description for product 163
+PROD_000164,Clothing,313.19831775009243,Sample product description for product 164
+PROD_000165,Electronics,255.34835365996895,Sample product description for product 165
+PROD_000166,Sports,220.51520330945363,Sample product description for product 166
+PROD_000167,Electronics,73.2954781691241,Sample product description for product 167
+PROD_000168,Sports,391.9631836977911,Sample product description for product 168
+PROD_000169,Clothing,266.5642681047797,Sample product description for product 169
+PROD_000170,Home & Garden,29.668040951829592,Sample product description for product 170
+PROD_000171,Electronics,251.19383443938005,Sample product description for product 171
+PROD_000172,Electronics,329.5256003220088,Sample product description for product 172
+PROD_000173,Sports,385.0280482904399,Sample product description for product 173
+PROD_000174,Clothing,305.21021704469297,Sample product description for product 174
+PROD_000175,Home & Garden,60.392870157163586,Sample product description for product 175
+PROD_000176,Clothing,151.03733643728688,Sample product description for product 176
+PROD_000177,Clothing,340.1810601523023,Sample product description for product 177
+PROD_000178,Sports,76.18927165062274,Sample product description for product 178
+PROD_000179,Books,341.47703726509616,Sample product description for product 179
+PROD_000180,Electronics,472.52485890346435,Sample product description for product 180
+PROD_000181,Electronics,344.44090517348354,Sample product description for product 181
+PROD_000182,Home & Garden,10.659672768716213,Sample product description for product 182
+PROD_000183,Home & Garden,145.20212024646796,Sample product description for product 183
+PROD_000184,Electronics,19.00920965428267,Sample product description for product 184
+PROD_000185,Clothing,349.25361001566296,Sample product description for product 185
+PROD_000186,Electronics,316.4117832776824,Sample product description for product 186
+PROD_000187,Electronics,329.59532303489596,Sample product description for product 187
+PROD_000188,Sports,328.7083719236935,Sample product description for product 188
+PROD_000189,Sports,306.93851396280246,Sample product description for product 189
+PROD_000190,Home & Garden,353.67780992424815,Sample product description for product 190
+PROD_000191,Books,369.7341169304067,Sample product description for product 191
+PROD_000192,Clothing,99.89167656361236,Sample product description for product 192
+PROD_000193,Electronics,465.14117942432716,Sample product description for product 193
+PROD_000194,Electronics,238.01509763034818,Sample product description for product 194
+PROD_000195,Electronics,315.1388183234883,Sample product description for product 195
+PROD_000196,Electronics,136.70987965604417,Sample product description for product 196
+PROD_000197,Home & Garden,246.52960180769787,Sample product description for product 197
+PROD_000198,Clothing,218.93519483279505,Sample product description for product 198
+PROD_000199,Home & Garden,364.88471847457527,Sample product description for product 199
+PROD_000200,Books,320.37175271864226,Sample product description for product 200
+PROD_000201,Electronics,482.99833457889594,Sample product description for product 201
+PROD_000202,Sports,404.929661425116,Sample product description for product 202
+PROD_000203,Sports,292.6717886424921,Sample product description for product 203
+PROD_000204,Sports,22.09523704004646,Sample product description for product 204
+PROD_000205,Sports,44.00310209304986,Sample product description for product 205
+PROD_000206,Sports,304.44688277295216,Sample product description for product 206
+PROD_000207,Clothing,459.46135262306353,Sample product description for product 207
+PROD_000208,Home & Garden,83.83686863040856,Sample product description for product 208
+PROD_000209,Home & Garden,495.8122482429681,Sample product description for product 209
+PROD_000210,Sports,451.1294144890145,Sample product description for product 210
+PROD_000211,Electronics,160.8643271879622,Sample product description for product 211
+PROD_000212,Sports,343.0202593736204,Sample product description for product 212
+PROD_000213,Clothing,294.7857576232687,Sample product description for product 213
+PROD_000214,Sports,143.25773410511735,Sample product description for product 214
+PROD_000215,Books,462.900664689384,Sample product description for product 215
+PROD_000216,Sports,320.5186838851092,Sample product description for product 216
+PROD_000217,Home & Garden,168.52990211789086,Sample product description for product 217
+PROD_000218,Sports,420.2588734978693,Sample product description for product 218
+PROD_000219,Sports,177.9381534596745,Sample product description for product 219
+PROD_000220,Home & Garden,462.8845945555268,Sample product description for product 220
+PROD_000221,Home & Garden,328.3961429145068,Sample product description for product 221
+PROD_000222,Sports,448.18990794564286,Sample product description for product 222
+PROD_000223,Books,156.40360681658328,Sample product description for product 223
+PROD_000224,Books,10.015052234237384,Sample product description for product 224
+PROD_000225,Books,184.73212623324076,Sample product description for product 225
+PROD_000226,Books,82.62655642866906,Sample product description for product 226
+PROD_000227,Sports,479.2395066735681,Sample product description for product 227
+PROD_000228,Books,450.4060659713004,Sample product description for product 228
+PROD_000229,Sports,51.67762888972814,Sample product description for product 229
+PROD_000230,Electronics,198.1808928116392,Sample product description for product 230
+PROD_000231,Clothing,307.4962876329527,Sample product description for product 231
+PROD_000232,Home & Garden,120.60658468117244,Sample product description for product 232
+PROD_000233,Electronics,164.31003784855892,Sample product description for product 233
+PROD_000234,Books,416.56420449759594,Sample product description for product 234
+PROD_000235,Books,270.6171655874581,Sample product description for product 235
+PROD_000236,Clothing,42.24776273838248,Sample product description for product 236
+PROD_000237,Home & Garden,295.53008017889397,Sample product description for product 237
+PROD_000238,Electronics,166.81338511557203,Sample product description for product 238
+PROD_000239,Sports,159.81453914917265,Sample product description for product 239
+PROD_000240,Electronics,249.6275299007338,Sample product description for product 240
+PROD_000241,Home & Garden,344.2739277349984,Sample product description for product 241
+PROD_000242,Sports,350.38034867698593,Sample product description for product 242
+PROD_000243,Electronics,319.8741656680992,Sample product description for product 243
+PROD_000244,Books,336.6423715908924,Sample product description for product 244
+PROD_000245,Home & Garden,349.7768427475914,Sample product description for product 245
+PROD_000246,Sports,135.80431319178143,Sample product description for product 246
+PROD_000247,Home & Garden,218.70947714880035,Sample product description for product 247
+PROD_000248,Books,367.82210286948987,Sample product description for product 248
+PROD_000249,Sports,392.3704527426777,Sample product description for product 249
+PROD_000250,Sports,22.587925986010003,Sample product description for product 250
+PROD_000251,Home & Garden,227.0865161054335,Sample product description for product 251
+PROD_000252,Sports,400.2891746646171,Sample product description for product 252
+PROD_000253,Books,106.16040118602116,Sample product description for product 253
+PROD_000254,Home & Garden,280.0149671145169,Sample product description for product 254
+PROD_000255,Clothing,62.941834094439486,Sample product description for product 255
+PROD_000256,Clothing,156.05706875716317,Sample product description for product 256
+PROD_000257,Sports,275.27346624464474,Sample product description for product 257
+PROD_000258,Home & Garden,329.4314241256057,Sample product description for product 258
+PROD_000259,Books,296.9379650975801,Sample product description for product 259
+PROD_000260,Books,322.50932950433986,Sample product description for product 260
+PROD_000261,Books,466.94684878270095,Sample product description for product 261
+PROD_000262,Clothing,254.0836723385408,Sample product description for product 262
+PROD_000263,Home & Garden,160.80774359364307,Sample product description for product 263
+PROD_000264,Clothing,85.42055979362347,Sample product description for product 264
+PROD_000265,Books,406.8629659484207,Sample product description for product 265
+PROD_000266,Books,76.48727571821686,Sample product description for product 266
+PROD_000267,Books,454.7903622569812,Sample product description for product 267
+PROD_000268,Home & Garden,103.06870686420484,Sample product description for product 268
+PROD_000269,Clothing,387.519138326255,Sample product description for product 269
+PROD_000270,Home & Garden,185.72457515725978,Sample product description for product 270
+PROD_000271,Sports,269.55984339310015,Sample product description for product 271
+PROD_000272,Sports,164.72884411225306,Sample product description for product 272
+PROD_000273,Electronics,487.83818822799907,Sample product description for product 273
+PROD_000274,Sports,354.0326525157584,Sample product description for product 274
+PROD_000275,Electronics,483.60828311052035,Sample product description for product 275
+PROD_000276,Home & Garden,204.00924083601544,Sample product description for product 276
+PROD_000277,Electronics,341.2914626490324,Sample product description for product 277
+PROD_000278,Clothing,212.0170666375161,Sample product description for product 278
+PROD_000279,Electronics,132.93075894644312,Sample product description for product 279
+PROD_000280,Clothing,296.42612549713454,Sample product description for product 280
+PROD_000281,Electronics,195.14121472632146,Sample product description for product 281
+PROD_000282,Sports,176.25958098168806,Sample product description for product 282
+PROD_000283,Home & Garden,91.36573552595283,Sample product description for product 283
+PROD_000284,Books,332.4700868476811,Sample product description for product 284
+PROD_000285,Electronics,62.10527570063131,Sample product description for product 285
+PROD_000286,Home & Garden,206.34504174888866,Sample product description for product 286
+PROD_000287,Electronics,213.26457120546246,Sample product description for product 287
+PROD_000288,Clothing,310.84993357396297,Sample product description for product 288
+PROD_000289,Sports,226.59637625625052,Sample product description for product 289
+PROD_000290,Home & Garden,204.5045067378035,Sample product description for product 290
+PROD_000291,Electronics,470.8469369109073,Sample product description for product 291
+PROD_000292,Electronics,477.7373051408173,Sample product description for product 292
+PROD_000293,Electronics,98.45393191228756,Sample product description for product 293
+PROD_000294,Electronics,304.88529963326914,Sample product description for product 294
+PROD_000295,Sports,64.49228619572717,Sample product description for product 295
+PROD_000296,Books,175.66136058946807,Sample product description for product 296
+PROD_000297,Electronics,89.64361385966684,Sample product description for product 297
+PROD_000298,Home & Garden,89.70379940168772,Sample product description for product 298
+PROD_000299,Electronics,313.7845967883404,Sample product description for product 299
+PROD_000300,Clothing,115.30910037949239,Sample product description for product 300
+PROD_000301,Clothing,437.2374000274477,Sample product description for product 301
+PROD_000302,Books,67.07414633993517,Sample product description for product 302
+PROD_000303,Books,154.77928306711206,Sample product description for product 303
+PROD_000304,Home & Garden,48.84733946928395,Sample product description for product 304
+PROD_000305,Books,300.45776102639053,Sample product description for product 305
+PROD_000306,Electronics,204.19318649412807,Sample product description for product 306
+PROD_000307,Home & Garden,440.5969323985281,Sample product description for product 307
+PROD_000308,Books,84.20830574832509,Sample product description for product 308
+PROD_000309,Books,192.05779054673843,Sample product description for product 309
+PROD_000310,Sports,49.50154853310486,Sample product description for product 310
+PROD_000311,Clothing,240.2585322964617,Sample product description for product 311
+PROD_000312,Electronics,415.9349487601055,Sample product description for product 312
+PROD_000313,Books,397.79077774841807,Sample product description for product 313
+PROD_000314,Home & Garden,416.03992399796175,Sample product description for product 314
+PROD_000315,Clothing,160.4164182824189,Sample product description for product 315
+PROD_000316,Sports,70.92946230112648,Sample product description for product 316
+PROD_000317,Clothing,493.99727415860235,Sample product description for product 317
+PROD_000318,Clothing,96.80522637908652,Sample product description for product 318
+PROD_000319,Home & Garden,29.739904201219247,Sample product description for product 319
+PROD_000320,Books,262.9788166068603,Sample product description for product 320
+PROD_000321,Sports,15.141884158572777,Sample product description for product 321
+PROD_000322,Clothing,245.82619609742613,Sample product description for product 322
+PROD_000323,Sports,395.1033853423676,Sample product description for product 323
+PROD_000324,Books,177.50516989406512,Sample product description for product 324
+PROD_000325,Sports,16.32454171068607,Sample product description for product 325
+PROD_000326,Sports,147.36402875019212,Sample product description for product 326
+PROD_000327,Sports,225.5292634597791,Sample product description for product 327
+PROD_000328,Home & Garden,21.813994770246744,Sample product description for product 328
+PROD_000329,Home & Garden,36.737050058522485,Sample product description for product 329
+PROD_000330,Books,102.74898649884463,Sample product description for product 330
+PROD_000331,Clothing,197.77552931415332,Sample product description for product 331
+PROD_000332,Sports,453.71403058516154,Sample product description for product 332
+PROD_000333,Home & Garden,33.697728413902624,Sample product description for product 333
+PROD_000334,Clothing,226.16377059300987,Sample product description for product 334
+PROD_000335,Books,298.1202270805179,Sample product description for product 335
+PROD_000336,Electronics,256.7380209408242,Sample product description for product 336
+PROD_000337,Clothing,414.70683118950797,Sample product description for product 337
+PROD_000338,Clothing,394.3586818742707,Sample product description for product 338
+PROD_000339,Electronics,17.137905828126662,Sample product description for product 339
+PROD_000340,Books,479.3934713638074,Sample product description for product 340
+PROD_000341,Home & Garden,213.41122037201333,Sample product description for product 341
+PROD_000342,Books,316.56888681936545,Sample product description for product 342
+PROD_000343,Electronics,20.300342295846406,Sample product description for product 343
+PROD_000344,Sports,306.1360666602378,Sample product description for product 344
+PROD_000345,Clothing,148.8483937566479,Sample product description for product 345
+PROD_000346,Books,121.11858640662639,Sample product description for product 346
+PROD_000347,Clothing,49.2518060387051,Sample product description for product 347
+PROD_000348,Sports,16.047112569583263,Sample product description for product 348
+PROD_000349,Books,100.38493501934285,Sample product description for product 349
+PROD_000350,Home & Garden,129.63918827091499,Sample product description for product 350
+PROD_000351,Books,35.063600753994834,Sample product description for product 351
+PROD_000352,Sports,476.68349993835534,Sample product description for product 352
+PROD_000353,Books,197.56420919748987,Sample product description for product 353
+PROD_000354,Clothing,81.21007928604702,Sample product description for product 354
+PROD_000355,Home & Garden,13.593733909728336,Sample product description for product 355
+PROD_000356,Books,44.866282650175776,Sample product description for product 356
+PROD_000357,Sports,497.3451746272774,Sample product description for product 357
+PROD_000358,Electronics,283.3581010734359,Sample product description for product 358
+PROD_000359,Sports,65.63491473988049,Sample product description for product 359
+PROD_000360,Clothing,100.78565666343461,Sample product description for product 360
+PROD_000361,Electronics,326.33036889943975,Sample product description for product 361
+PROD_000362,Electronics,171.89182209615208,Sample product description for product 362
+PROD_000363,Electronics,47.8218898109693,Sample product description for product 363
+PROD_000364,Home & Garden,492.17544199677377,Sample product description for product 364
+PROD_000365,Home & Garden,70.40905185648396,Sample product description for product 365
+PROD_000366,Electronics,91.37667764342171,Sample product description for product 366
+PROD_000367,Books,348.4558944054989,Sample product description for product 367
+PROD_000368,Sports,475.00052685303064,Sample product description for product 368
+PROD_000369,Clothing,464.7453576121356,Sample product description for product 369
+PROD_000370,Books,281.8185836083536,Sample product description for product 370
+PROD_000371,Clothing,339.4710082713652,Sample product description for product 371
+PROD_000372,Electronics,37.15378533669977,Sample product description for product 372
+PROD_000373,Books,385.32607167903774,Sample product description for product 373
+PROD_000374,Electronics,213.5670702901239,Sample product description for product 374
+PROD_000375,Home & Garden,294.01335764178697,Sample product description for product 375
+PROD_000376,Home & Garden,96.77030514467202,Sample product description for product 376
+PROD_000377,Clothing,30.2997635215,Sample product description for product 377
+PROD_000378,Clothing,303.6862652706611,Sample product description for product 378
+PROD_000379,Sports,126.0927570093945,Sample product description for product 379
+PROD_000380,Electronics,34.97768974099678,Sample product description for product 380
+PROD_000381,Clothing,400.78188219527806,Sample product description for product 381
+PROD_000382,Clothing,297.97153896089753,Sample product description for product 382
+PROD_000383,Sports,242.79403770471635,Sample product description for product 383
+PROD_000384,Home & Garden,45.64012441154752,Sample product description for product 384
+PROD_000385,Clothing,317.59525329969483,Sample product description for product 385
+PROD_000386,Books,423.4399715537739,Sample product description for product 386
+PROD_000387,Sports,346.7748256654336,Sample product description for product 387
+PROD_000388,Sports,120.08212484446564,Sample product description for product 388
+PROD_000389,Electronics,319.05154780104533,Sample product description for product 389
+PROD_000390,Books,489.32812757801355,Sample product description for product 390
+PROD_000391,Books,173.75442994482387,Sample product description for product 391
+PROD_000392,Home & Garden,215.80539210487478,Sample product description for product 392
+PROD_000393,Books,192.33890546843236,Sample product description for product 393
+PROD_000394,Home & Garden,404.0411268421032,Sample product description for product 394
+PROD_000395,Sports,98.80052491435768,Sample product description for product 395
+PROD_000396,Sports,349.10477098947496,Sample product description for product 396
+PROD_000397,Clothing,329.6148043405346,Sample product description for product 397
+PROD_000398,Sports,313.1190416560301,Sample product description for product 398
+PROD_000399,Home & Garden,498.2978913113234,Sample product description for product 399
+PROD_000400,Home & Garden,340.9734622148485,Sample product description for product 400
+PROD_000401,Home & Garden,497.100010776332,Sample product description for product 401
+PROD_000402,Home & Garden,367.78499212223153,Sample product description for product 402
+PROD_000403,Sports,222.6855662796688,Sample product description for product 403
+PROD_000404,Sports,495.8510601554194,Sample product description for product 404
+PROD_000405,Electronics,183.6448196632063,Sample product description for product 405
+PROD_000406,Books,337.9173246631847,Sample product description for product 406
+PROD_000407,Books,353.3555054292893,Sample product description for product 407
+PROD_000408,Sports,300.9525096522916,Sample product description for product 408
+PROD_000409,Electronics,331.3926234182158,Sample product description for product 409
+PROD_000410,Books,289.44059997838133,Sample product description for product 410
+PROD_000411,Clothing,43.8852481820656,Sample product description for product 411
+PROD_000412,Books,183.8676092161497,Sample product description for product 412
+PROD_000413,Clothing,31.224483894612856,Sample product description for product 413
+PROD_000414,Books,137.9695919303215,Sample product description for product 414
+PROD_000415,Electronics,374.9209966363129,Sample product description for product 415
+PROD_000416,Electronics,400.1593686336297,Sample product description for product 416
+PROD_000417,Clothing,261.4557903181976,Sample product description for product 417
+PROD_000418,Sports,249.20706090229888,Sample product description for product 418
+PROD_000419,Home & Garden,138.05317876383805,Sample product description for product 419
+PROD_000420,Sports,39.85507364315278,Sample product description for product 420
+PROD_000421,Home & Garden,261.7168490554993,Sample product description for product 421
+PROD_000422,Electronics,166.33208642279752,Sample product description for product 422
+PROD_000423,Electronics,253.1572187313988,Sample product description for product 423
+PROD_000424,Electronics,128.8633503761743,Sample product description for product 424
+PROD_000425,Sports,166.15790595535657,Sample product description for product 425
+PROD_000426,Clothing,471.32237637797203,Sample product description for product 426
+PROD_000427,Sports,241.10825046779172,Sample product description for product 427
+PROD_000428,Books,316.5841370080628,Sample product description for product 428
+PROD_000429,Electronics,187.20707647211182,Sample product description for product 429
+PROD_000430,Sports,134.27025772125705,Sample product description for product 430
+PROD_000431,Electronics,106.18420813242285,Sample product description for product 431
+PROD_000432,Sports,252.31535130899988,Sample product description for product 432
+PROD_000433,Books,298.16588242666904,Sample product description for product 433
+PROD_000434,Clothing,317.2145329190711,Sample product description for product 434
+PROD_000435,Books,309.7067455010963,Sample product description for product 435
+PROD_000436,Books,135.3144137586672,Sample product description for product 436
+PROD_000437,Clothing,98.58472377556598,Sample product description for product 437
+PROD_000438,Clothing,98.77420691650984,Sample product description for product 438
+PROD_000439,Clothing,160.14357018200784,Sample product description for product 439
+PROD_000440,Sports,301.0842381277375,Sample product description for product 440
+PROD_000441,Sports,218.98487614851194,Sample product description for product 441
+PROD_000442,Electronics,49.9717135495693,Sample product description for product 442
+PROD_000443,Clothing,388.6087841828016,Sample product description for product 443
+PROD_000444,Electronics,114.85739256217364,Sample product description for product 444
+PROD_000445,Home & Garden,17.158408583352603,Sample product description for product 445
+PROD_000446,Sports,407.81440076508613,Sample product description for product 446
+PROD_000447,Home & Garden,328.19562191594497,Sample product description for product 447
+PROD_000448,Electronics,161.31311492131152,Sample product description for product 448
+PROD_000449,Clothing,467.04894013955345,Sample product description for product 449
+PROD_000450,Books,283.12843251395174,Sample product description for product 450
+PROD_000451,Sports,234.67409547163754,Sample product description for product 451
+PROD_000452,Home & Garden,405.781731790925,Sample product description for product 452
+PROD_000453,Clothing,409.8787307482421,Sample product description for product 453
+PROD_000454,Home & Garden,498.50521453171814,Sample product description for product 454
+PROD_000455,Clothing,112.11579107298249,Sample product description for product 455
+PROD_000456,Electronics,441.07867712422836,Sample product description for product 456
+PROD_000457,Electronics,77.43856985519706,Sample product description for product 457
+PROD_000458,Books,118.11901921465675,Sample product description for product 458
+PROD_000459,Sports,22.06281208220691,Sample product description for product 459
+PROD_000460,Home & Garden,255.0285470036325,Sample product description for product 460
+PROD_000461,Home & Garden,184.71994971590135,Sample product description for product 461
+PROD_000462,Home & Garden,381.43980629549606,Sample product description for product 462
+PROD_000463,Home & Garden,260.9852067617553,Sample product description for product 463
+PROD_000464,Home & Garden,112.74823594079842,Sample product description for product 464
+PROD_000465,Sports,467.9265015506026,Sample product description for product 465
+PROD_000466,Clothing,393.12654736847594,Sample product description for product 466
+PROD_000467,Electronics,84.42422444494883,Sample product description for product 467
+PROD_000468,Home & Garden,202.8421146920946,Sample product description for product 468
+PROD_000469,Electronics,99.40443991972012,Sample product description for product 469
+PROD_000470,Electronics,367.36180223383104,Sample product description for product 470
+PROD_000471,Home & Garden,111.34076763536417,Sample product description for product 471
+PROD_000472,Books,162.97297091887341,Sample product description for product 472
+PROD_000473,Clothing,111.2246979486726,Sample product description for product 473
+PROD_000474,Home & Garden,375.1552239185089,Sample product description for product 474
+PROD_000475,Books,205.15746905363667,Sample product description for product 475
+PROD_000476,Home & Garden,141.8891697858983,Sample product description for product 476
+PROD_000477,Electronics,191.4137709854426,Sample product description for product 477
+PROD_000478,Electronics,168.6281045491076,Sample product description for product 478
+PROD_000479,Books,424.60086315981346,Sample product description for product 479
+PROD_000480,Electronics,332.2809121652172,Sample product description for product 480
+PROD_000481,Home & Garden,194.57145581043662,Sample product description for product 481
+PROD_000482,Books,396.1053654595565,Sample product description for product 482
+PROD_000483,Books,131.78451225443874,Sample product description for product 483
+PROD_000484,Home & Garden,303.98425054792233,Sample product description for product 484
+PROD_000485,Books,438.9894386939893,Sample product description for product 485
+PROD_000486,Sports,430.7620794098412,Sample product description for product 486
+PROD_000487,Books,394.69099204748096,Sample product description for product 487
+PROD_000488,Home & Garden,81.88060586743896,Sample product description for product 488
+PROD_000489,Clothing,473.0617916444787,Sample product description for product 489
+PROD_000490,Sports,170.7984354532678,Sample product description for product 490
+PROD_000491,Electronics,337.9849222779667,Sample product description for product 491
+PROD_000492,Books,260.17950027696673,Sample product description for product 492
+PROD_000493,Books,159.96311145209802,Sample product description for product 493
+PROD_000494,Home & Garden,403.17405497127993,Sample product description for product 494
+PROD_000495,Sports,77.27701603062941,Sample product description for product 495
+PROD_000496,Clothing,51.28513493480593,Sample product description for product 496
+PROD_000497,Books,407.8536549725629,Sample product description for product 497
+PROD_000498,Home & Garden,151.82603853442203,Sample product description for product 498
+PROD_000499,Books,403.5900032857551,Sample product description for product 499

@@ -1,4 +1,3 @@
-# src/data_preparation/data_ingestion.py
 import boto3
 import pandas as pd
 import json
@@ -6,6 +5,7 @@ from datetime import datetime, timedelta
 from typing import Dict, List, Optional
 import logging
 from src.config.aws_config import AWSConfig
+import io
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -25,7 +25,7 @@ class DataIngestionPipeline:
         self.glue_client = aws_config.get_client('glue')
         
     def ingest_from_s3(self, bucket: str, prefix: str, 
-                       file_format: str = 'parquet') -> pd.DataFrame:
+                       file_format: str = 'csv') -> pd.DataFrame:
         """
         Ingest batch data from S3
         Supports multiple file formats as per exam requirements
@@ -44,16 +44,103 @@ class DataIngestionPipeline:
             dataframes = []
             for obj in response['Contents']:
                 key = obj['Key']
-                if not key.endswith(f'.{file_format}'):
+                
+                # Skip directories (keys ending with /)
+                if key.endswith('/'):
                     continue
                     
+                if not key.endswith(f'.{file_format}'):
+                    continue
+                
+                logger.info(f"Reading file: s3://{bucket}/{key}")
+                
+                # Get object from S3
+                s3_object = self.s3_client.get_object(Bucket=bucket, Key=key)
+                
                 # Read based on format
-                if file_format == 'parquet':
-                    df = pd.read_parquet(f's3://{bucket}/{key}')
-                elif file_format == 'csv':
-                    df = pd.read_csv(f's3://{bucket}/{key}')
+                if file_format == 'csv':
+                    # Read CSV directly from S3 object
+                    df = pd.read_csv(io.BytesIO(s3_object['Body'].read()))
+                elif file_format == 'parquet':
+                    # For parquet, we need to use s3fs or download first
+                    df = self._read_parquet_from_s3(bucket, key)
                 elif file_format == 'json':
-                    df = pd.read_json(f's3://{bucket}/{key}', lines=True)
+                    # Read JSON lines format
+                    content = s3_object['Body'].read().decode('utf-8')
+                    df = pd.read_json(io.StringIO(content), lines=True)
+                else:
+                    raise ValueError(f"Unsupported format: {file_format}")
+                
+                logger.info(f"Read {len(df)} records from {key}")
+                dataframes.append(df)
+            
+            if not dataframes:
+                logger.warning(f"No {file_format} files found in s3://{bucket}/{prefix}")
+                return pd.DataFrame()
+            
+            # Combine all dataframes
+            combined_df = pd.concat(dataframes, ignore_index=True)
+            logger.info(f"Ingested {len(combined_df)} total records from S3")
+            
+            return combined_df
+            
+        except Exception as e:
+            logger.error(f"Error ingesting from S3: {str(e)}")
+            raise
+    
+    def _read_parquet_from_s3(self, bucket: str, key: str) -> pd.DataFrame:
+        """Read parquet file from S3 using boto3"""
+        try:
+            # Download to temporary location and read
+            import tempfile
+            import os
+            
+            with tempfile.NamedTemporaryFile(delete=False, suffix='.parquet') as tmp_file:
+                self.s3_client.download_fileobj(bucket, key, tmp_file)
+                tmp_file.flush()
+                
+                # Read parquet file
+                df = pd.read_parquet(tmp_file.name)
+                
+                # Clean up
+                os.unlink(tmp_file.name)
+                
+                return df
+                
+        except Exception as e:
+            logger.error(f"Error reading parquet from S3: {str(e)}")
+            raise
+    
+    def ingest_from_s3_with_s3fs(self, bucket: str, prefix: str, 
+                                 file_format: str = 'csv') -> pd.DataFrame:
+        """
+        Alternative method using s3fs (requires s3fs package)
+        """
+        try:
+            import s3fs
+            
+            # Create s3fs filesystem
+            fs = s3fs.S3FileSystem()
+            
+            # List files
+            files = fs.glob(f's3://{bucket}/{prefix}/*.{file_format}')
+            
+            if not files:
+                logger.warning(f"No {file_format} files found in s3://{bucket}/{prefix}")
+                return pd.DataFrame()
+            
+            dataframes = []
+            for file_path in files:
+                logger.info(f"Reading file: s3://{file_path}")
+                
+                if file_format == 'csv':
+                    with fs.open(f's3://{file_path}', 'r') as f:
+                        df = pd.read_csv(f)
+                elif file_format == 'parquet':
+                    df = pd.read_parquet(f's3://{file_path}', filesystem=fs)
+                elif file_format == 'json':
+                    with fs.open(f's3://{file_path}', 'r') as f:
+                        df = pd.read_json(f, lines=True)
                 else:
                     raise ValueError(f"Unsupported format: {file_format}")
                 
@@ -61,12 +148,15 @@ class DataIngestionPipeline:
             
             # Combine all dataframes
             combined_df = pd.concat(dataframes, ignore_index=True)
-            logger.info(f"Ingested {len(combined_df)} records from S3")
+            logger.info(f"Ingested {len(combined_df)} total records from S3")
             
             return combined_df
             
+        except ImportError:
+            logger.warning("s3fs not available, falling back to boto3 method")
+            return self.ingest_from_s3(bucket, prefix, file_format)
         except Exception as e:
-            logger.error(f"Error ingesting from S3: {str(e)}")
+            logger.error(f"Error ingesting from S3 with s3fs: {str(e)}")
             raise
     
     def setup_kinesis_consumer(self, stream_name: str, 

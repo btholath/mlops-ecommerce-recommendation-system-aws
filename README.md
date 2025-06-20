@@ -11,6 +11,16 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 pip install -e .
 
+# Install the missing dependency
+pip install fsspec
+pip install fsspec s3fs pyarrow openpyxl
+
+# Also install s3fs for better S3 integration
+pip install s3fs
+
+# Install boto3 with pandas extras
+pip install boto3[crt] pandas[all]
+
 # Step 4: Configure AWS credentials
 aws configure
 # Enter your AWS Access Key ID, Secret Access Key, region, and output format
