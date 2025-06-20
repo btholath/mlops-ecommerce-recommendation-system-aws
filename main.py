@@ -220,25 +220,26 @@ class EcommerceMLPipeline:
         self.customer_data_clean = self.data_transformer.clean_customer_data(
             self.customer_data.copy()
         )
-        
-        # Transform transaction data
-        self.customer_aggregated = self.data_transformer.transform_transaction_data(
+
+        # Transform transaction data — get both aggregated and enriched transaction-level data
+        self.customer_aggregated, self.enriched_transaction_data = self.data_transformer.transform_transaction_data(
             self.transaction_data.copy()
         )
-        
+
         # Create product features
         self.product_features = self.data_transformer.create_product_features(
             self.product_data.copy()
         )
-        
-        # Create interaction features
+
+        # Create interaction features using enriched transaction data (with 'month' column)
         self.interaction_features = self.data_transformer.create_interaction_features(
             self.customer_data_clean,
             self.product_features,
-            self.transaction_data
+            self.enriched_transaction_data
         )
-        
+
         logger.info("Data transformation completed successfully")
+
     
     def _save_processed_data(self):
         """Save processed data back to S3"""

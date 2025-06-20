@@ -53,7 +53,7 @@ class DataTransformer:
         logger.info(f"Customer data cleaning completed. Shape: {df.shape}")
         return df
     
-    def transform_transaction_data(self, df: pd.DataFrame) -> pd.DataFrame:
+    def transform_transaction_data(self, df: pd.DataFrame) -> Tuple[pd.DataFrame, pd.DataFrame]:
         """
         Transform transaction/purchase data
         """
@@ -64,6 +64,7 @@ class DataTransformer:
         df['transaction_date'] = df['transaction_timestamp'].dt.date
         
         # Create time-based features
+        print("df['transaction_timestamp'] = ", df['transaction_timestamp'] )
         df['hour_of_day'] = df['transaction_timestamp'].dt.hour
         df['day_of_week'] = df['transaction_timestamp'].dt.dayofweek
         df['month'] = df['transaction_timestamp'].dt.month
@@ -95,7 +96,9 @@ class DataTransformer:
         ].fillna(0)
         
         logger.info(f"Transaction transformation completed. Shape: {customer_agg.shape}")
-        return customer_agg
+        logger.info(f"Transaction transformation completed. Shape: {customer_agg.shape}")
+        return customer_agg, df
+
     
     def create_product_features(self, df: pd.DataFrame) -> pd.DataFrame:
         """
