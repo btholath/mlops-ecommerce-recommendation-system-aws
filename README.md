@@ -70,22 +70,23 @@ export AWS_SECRET_ACCESS_KEY=your_secret_key
 export AWS_DEFAULT_REGION=us-east-1
 Step 2: Create S3 Bucket
 # Create S3 bucket (replace with unique name)
-aws s3 mb s3://your-unique-ml-data-bucket-name
+aws s3 mb s3://mlops-ecommerce-data-prod-btholath
 
 # Verify bucket creation
-aws s3 ls | grep your-unique-ml-data-bucket-name
+aws s3 ls | grep mlops-ecommerce-data-prod-btholath
 Step 3: Create Environment Configuration
 Create .env file in project root:
 
 # AWS Configuration
 AWS_REGION=us-east-1
-ML_DATA_BUCKET=your-unique-ml-data-bucket-name
+ML_DATA_BUCKET=mlops-ecommerce-data-prod-btholath
 GLUE_DATABASE=ecommerce_ml_db
 SAGEMAKER_ROLE=arn:aws:iam::YOUR_ACCOUNT_ID:role/SageMakerExecutionRole
 
 # Project Configuration
 PROJECT_NAME=ecommerce-ml-project
 ENVIRONMENT=development
+
 3. Update AWS Config to Use Environment Variables
 Update src/config/aws_config.py to load from environment:
 
