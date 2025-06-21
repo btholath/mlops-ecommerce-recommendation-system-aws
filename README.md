@@ -108,9 +108,23 @@ This comprehensive approach to data transformation and feature engineering provi
 # References
 - https://dev.to/shettigarc/easy-github-codespaces-setup-your-app-postgres-and-pgadmin-3b08
 # Inside the container terminal
-@btholath ➜ /workspaces/mlops-ecommerce-recommendation-system-aws (main) $ 
-sudo apk update
-sudo apk add --no-cache postgresql15-client postgresql15
-which psql           # → /usr/bin/psql
-psql --version       # → psql (PostgreSQL) 15.x
-pg_isready           # should now exist
+@btholath ➜ /workspaces/mlops-ecommerce-recommendation-system-aws (main) $
+# Install Docker CLI & Postgres client utilities (Debian/Ubuntu base image)
+sudo apt-get update -y
+sudo apt-get install -y docker.io postgresql-client
+# still inside the dev-container shell
+sudo apt-get update -y
+sudo apt-get install -y docker-compose-plugin
+
+# sanity-check
+docker compose version          # → Docker Compose X.Y.Z
+
+
+docker --version          # should print the Docker client version
+docker compose version    # same here
+psql --version            # should show 15.x or 16.x
+pg_isready -h localhost
+
+docker compose ps
+pg_isready -h localhost -p 5432   # → /var/run/postgresql:5432 - accepting connections
+psql -h localhost -U user -d devdb

@@ -1,7 +1,7 @@
 {
   "name": "Python 3.12 + Postgres",
   // point at the Compose file in the repo root
-  "dockerComposeFile": "../docker-compose.yml",
+  "dockerComposeFile": "docker-compose.yml",
 
   // this is the container you’ll develop _in_
   "service": "app",
