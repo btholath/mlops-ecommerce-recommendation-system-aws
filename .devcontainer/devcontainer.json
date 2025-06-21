@@ -1,56 +1,42 @@
+// .devcontainer/devcontainer.json
 {
-  "name": "mlops-secure-workspace",
+  "name": "ML-Ops AWS – Python 3.12 + Postgres",
+  // 1️⃣ Base image: lightweight Debian bookworm with Python 3.12
+  "image": "mcr.microsoft.com/devcontainers/python:1-3.12-bookworm",
 
-  // --------------------------------------------------------------------
-  // 1. Base image for your main development container
-  // --------------------------------------------------------------------
-  "image": "mcr.microsoft.com/devcontainers/python:0-3.12",   // Ubuntu + Python 3.12
-
-  // --------------------------------------------------------------------
-  // 2. Bring in additional features (Docker daemon so docker-compose works)
-  // --------------------------------------------------------------------
+  // 2️⃣ Features: add Postgres *in the same container* for dev/test
   "features": {
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+    // Installs psql client & server, creates DB + user `dev`
+    "ghcr.io/devcontainers/features/postgres:1": {
+      "version": "16",
+      "database": "secure_db",
+      "user": "dev",
+      "password": "devpass"
+    },
+    // Optional: AWS CLI v2 (handy for your project)
+    "ghcr.io/devcontainers/features/aws-cli:1": {}
   },
 
-  // --------------------------------------------------------------------
-  // 3. Compose file that defines the Postgres service
-  //    (place it in .devcontainer/docker-compose.yml)
-  // --------------------------------------------------------------------
-  "dockerComposeFile": [
-    "docker-compose.yml"
-  ],
+  // 3️⃣ Forward DB & app ports so VS Code can see them
+  "forwardPorts": [5432, 5000],
 
-  // Which service(s) should VS Code start automatically?
-  "runServices": [
-    "db"              // ← the Postgres service in docker-compose.yml
-  ],
+  // 4️⃣ Load secrets & env vars
+  "runEnv": {
+    "SECRET_KEY": "changeme-in-real-env",               // Flask auth
+    "DATABASE_URL": "postgresql://dev:devpass@localhost:5432/secure_db"
+  },
 
-  // --------------------------------------------------------------------
-  // 4. Networking
-  // --------------------------------------------------------------------
-  "forwardPorts": [
-    5432              // expose Postgres so you can connect on localhost:5432
-  ],
+  // 5️⃣ Post-create tasks (installs Python deps after the container boots)
+  "postCreateCommand": "pip install --upgrade pip && pip install -r requirements.txt",
 
-  // --------------------------------------------------------------------
-  // 5. One-time setup command: install Python deps, run migrations, etc.
-  // --------------------------------------------------------------------
-  "postCreateCommand": "pip install -r requirements.txt",
-
-  // --------------------------------------------------------------------
-  // 6. VS Code customisation: useful extensions for Python & Postgres
-  // --------------------------------------------------------------------
+  // 6️⃣ VS Code extensions that open automatically in the container
   "customizations": {
     "vscode": {
       "extensions": [
         "ms-python.python",
-        "ms-python.vscode-pylance",
-        "ms-ossdata.vscode-postgresql"   // nice optional GUI for inspecting the DB
+        "ms-azuretools.vscode-docker",
+        "ms-vscode.vscode-postgresql"        // nice GUI for your DB
       ]
     }
-  },
-
-  // Run as the standard ‘codespace’ user (not root)
-  "remoteUser": "codespace"
+  }
 }
