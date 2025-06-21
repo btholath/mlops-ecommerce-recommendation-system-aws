@@ -107,3 +107,10 @@ This comprehensive approach to data transformation and feature engineering provi
 
 # References
 - https://dev.to/shettigarc/easy-github-codespaces-setup-your-app-postgres-and-pgadmin-3b08
+# Inside the container terminal
+@btholath ➜ /workspaces/mlops-ecommerce-recommendation-system-aws (main) $ 
+sudo apk update
+sudo apk add --no-cache postgresql15-client postgresql15
+which psql           # → /usr/bin/psql
+psql --version       # → psql (PostgreSQL) 15.x
+pg_isready           # should now exist

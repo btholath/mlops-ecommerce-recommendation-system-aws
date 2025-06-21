@@ -1,42 +1,43 @@
-// .devcontainer/devcontainer.json
 {
-  "name": "ML-Ops AWS – Python 3.12 + Postgres",
-  // 1️⃣ Base image: lightweight Debian bookworm with Python 3.12
-  "image": "mcr.microsoft.com/devcontainers/python:1-3.12-bookworm",
+  "name": "Python 3.12 + Postgres 16",
+  // --- Base runtime ----------------------------------------------------------
+  "image": "mcr.microsoft.com/devcontainers/python:3.12-bookworm",
 
-  // 2️⃣ Features: add Postgres *in the same container* for dev/test
+  // --- Dev Container features ------------------------------------------------
   "features": {
-    // Installs psql client & server, creates DB + user `dev`
     "ghcr.io/devcontainers/features/postgres:1": {
       "version": "16",
       "database": "secure_db",
       "user": "dev",
-      "password": "devpass"
+      "password": "devpass",
+      "cli": true               /* also installs libpq & psql */
     },
-    // Optional: AWS CLI v2 (handy for your project)
-    "ghcr.io/devcontainers/features/aws-cli:1": {}
+    "ghcr.io/devcontainers/features/apt-packages:1": {
+      "packages": [
+        "postgresql-client"     /* gives pg_isready, createdb, etc. */
+      ]
+    }
   },
 
-  // 3️⃣ Forward DB & app ports so VS Code can see them
-  "forwardPorts": [5432, 5000],
-
-  // 4️⃣ Load secrets & env vars
-  "runEnv": {
-    "SECRET_KEY": "changeme-in-real-env",               // Flask auth
-    "DATABASE_URL": "postgresql://dev:devpass@localhost:5432/secure_db"
+  // --- Networking ------------------------------------------------------------
+  "forwardPorts": [5432],
+  "portsAttributes": {
+    "5432": {
+      "label": "PostgreSQL 16",
+      "onAutoForward": "notify"
+    }
   },
 
-  // 5️⃣ Post-create tasks (installs Python deps after the container boots)
-  "postCreateCommand": "pip install --upgrade pip && pip install -r requirements.txt",
+  // --- First-time setup ------------------------------------------------------
+  "postCreateCommand": "pip install --upgrade pip && if [ -f requirements.txt ]; then pip install -r requirements.txt; fi",
 
-  // 6️⃣ VS Code extensions that open automatically in the container
+  // --- Misc ------------------------------------------------------------------
+  "remoteUser": "vscode",
   "customizations": {
     "vscode": {
-      "extensions": [
-        "ms-python.python",
-        "ms-azuretools.vscode-docker",
-        "ms-vscode.vscode-postgresql"        // nice GUI for your DB
-      ]
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python"
+      }
     }
   }
 }
