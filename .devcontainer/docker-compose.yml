@@ -1,14 +1,18 @@
+# docker-compose.yml
+version: '3.8'
 services:
   db:
-    image: postgres:16-alpine
-    restart: unless-stopped
-    ports: ["5432:5432"]
+    image: postgres:15-alpine
+    container_name: pg_db
+    restart: always
+    ports:
+      - "5432:5432"
     environment:
-      POSTGRES_USER: dev
-      POSTGRES_PASSWORD: devpass
-      POSTGRES_DB: secure_db
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: devdb
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - postgres-data:/var/lib/postgresql/data
 
 volumes:
-  postgres_data:
+  postgres-data:

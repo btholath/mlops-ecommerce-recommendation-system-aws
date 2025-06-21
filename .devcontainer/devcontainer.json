@@ -1,25 +1,8 @@
-// .devcontainer/devcontainer.json
 {
-  "name": "Python 3.12 + Postgres 15",
-  "image": "mcr.microsoft.com/devcontainers/python:3.12",
-
-  // --- Features --------------------------------------------------------------
-  "features": {
-    // ⬇️  Pin to a concrete, published version to avoid GHCR metadata fetch
-    "ghcr.io/devcontainers/features/postgres:1.0.4": {
-      "version": "15",          // <- server version
-      "database": "secure_db",
-      "user": "dev",
-      "password": "devpass",
-      "cli": true               // install psql + libpq-dev
-    }
-  },
-
-  // --- Misc ---
-
-  // Forward the Postgres port to the host so you can connect from local tools
+  "name": "My Codespace",
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "db",
+  "workspaceFolder": "/workspace",
   "forwardPorts": [5432],
-
-  // Install Python deps after the container is ready
-  "postCreateCommand": "pip install --upgrade pip && pip install -r requirements.txt"
+  "postCreateCommand": "apt-get update && apt-get install -y postgresql-client"
 }
