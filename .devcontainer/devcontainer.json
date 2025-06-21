@@ -1,43 +1,25 @@
+// .devcontainer/devcontainer.json
 {
-  "name": "Python 3.12 + Postgres 16",
-  // --- Base runtime ----------------------------------------------------------
-  "image": "mcr.microsoft.com/devcontainers/python:3.12-bookworm",
+  "name": "Python 3.12 + Postgres 15",
+  "image": "mcr.microsoft.com/devcontainers/python:3.12",
 
-  // --- Dev Container features ------------------------------------------------
+  // --- Features --------------------------------------------------------------
   "features": {
-    "ghcr.io/devcontainers/features/postgres:1": {
-      "version": "16",
+    // ⬇️  Pin to a concrete, published version to avoid GHCR metadata fetch
+    "ghcr.io/devcontainers/features/postgres:1.0.4": {
+      "version": "15",          // <- server version
       "database": "secure_db",
       "user": "dev",
       "password": "devpass",
-      "cli": true               /* also installs libpq & psql */
-    },
-    "ghcr.io/devcontainers/features/apt-packages:1": {
-      "packages": [
-        "postgresql-client"     /* gives pg_isready, createdb, etc. */
-      ]
+      "cli": true               // install psql + libpq-dev
     }
   },
 
-  // --- Networking ------------------------------------------------------------
+  // --- Misc ---
+
+  // Forward the Postgres port to the host so you can connect from local tools
   "forwardPorts": [5432],
-  "portsAttributes": {
-    "5432": {
-      "label": "PostgreSQL 16",
-      "onAutoForward": "notify"
-    }
-  },
 
-  // --- First-time setup ------------------------------------------------------
-  "postCreateCommand": "pip install --upgrade pip && if [ -f requirements.txt ]; then pip install -r requirements.txt; fi",
-
-  // --- Misc ------------------------------------------------------------------
-  "remoteUser": "vscode",
-  "customizations": {
-    "vscode": {
-      "settings": {
-        "python.defaultInterpreterPath": "/usr/local/bin/python"
-      }
-    }
-  }
+  // Install Python deps after the container is ready
+  "postCreateCommand": "pip install --upgrade pip && pip install -r requirements.txt"
 }
