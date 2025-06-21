@@ -2,7 +2,7 @@
   "name": "My Codespace",
 
   // point to the Compose file inside .devcontainer
-  "dockerComposeFile": ".devcontainer/docker-compose.yml",
+  "dockerComposeFile": "docker-compose.yml",
   "service": "app",                // ← matches the new service above
   "workspaceFolder": "/workspace",
 
