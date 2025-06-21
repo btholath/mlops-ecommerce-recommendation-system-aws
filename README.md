@@ -104,3 +104,6 @@ Handle Missing Values: Address missing data before feature engineering
 Feature Selection: Not all features improve model performance
 Cross-Validation: Validate feature engineering choices using proper CV
 This comprehensive approach to data transformation and feature engineering provides the foundation for building robust machine learning models that generalize well to new data.
+
+# References
+- https://dev.to/shettigarc/easy-github-codespaces-setup-your-app-postgres-and-pgadmin-3b08
