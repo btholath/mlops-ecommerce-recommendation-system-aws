@@ -1,0 +1,56 @@
+{
+  "name": "mlops-secure-workspace",
+
+  // --------------------------------------------------------------------
+  // 1. Base image for your main development container
+  // --------------------------------------------------------------------
+  "image": "mcr.microsoft.com/devcontainers/python:0-3.12",   // Ubuntu + Python 3.12
+
+  // --------------------------------------------------------------------
+  // 2. Bring in additional features (Docker daemon so docker-compose works)
+  // --------------------------------------------------------------------
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+
+  // --------------------------------------------------------------------
+  // 3. Compose file that defines the Postgres service
+  //    (place it in .devcontainer/docker-compose.yml)
+  // --------------------------------------------------------------------
+  "dockerComposeFile": [
+    "docker-compose.yml"
+  ],
+
+  // Which service(s) should VS Code start automatically?
+  "runServices": [
+    "db"              // ← the Postgres service in docker-compose.yml
+  ],
+
+  // --------------------------------------------------------------------
+  // 4. Networking
+  // --------------------------------------------------------------------
+  "forwardPorts": [
+    5432              // expose Postgres so you can connect on localhost:5432
+  ],
+
+  // --------------------------------------------------------------------
+  // 5. One-time setup command: install Python deps, run migrations, etc.
+  // --------------------------------------------------------------------
+  "postCreateCommand": "pip install -r requirements.txt",
+
+  // --------------------------------------------------------------------
+  // 6. VS Code customisation: useful extensions for Python & Postgres
+  // --------------------------------------------------------------------
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-ossdata.vscode-postgresql"   // nice optional GUI for inspecting the DB
+      ]
+    }
+  },
+
+  // Run as the standard ‘codespace’ user (not root)
+  "remoteUser": "codespace"
+}
