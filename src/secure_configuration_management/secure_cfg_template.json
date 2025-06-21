@@ -1,0 +1,8 @@
+{
+  "host": "localhost",
+  "port": "5432",
+  "name": null,
+  "user": null,
+  "password": null,
+  "ssl_mode": "require"
+}
