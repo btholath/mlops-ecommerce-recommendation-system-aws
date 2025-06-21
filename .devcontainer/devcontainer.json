@@ -1,8 +1,30 @@
 {
-  "name": "My Codespace",
+  "name": "Python 3.12 + Postgres",
+  // point at the Compose file in the repo root
   "dockerComposeFile": "../docker-compose.yml",
-  "service": "db",
+
+  // this is the container you’ll develop _in_
+  "service": "app",
+
+  // Codespaces will mount your repo here automatically
   "workspaceFolder": "/workspace",
+
+  // automatically start the DB, too
+  "runServices": ["db"],
+
+  // expose Postgres to the Codespace VM (so psql / GUI clients work)
   "forwardPorts": [5432],
-  "postCreateCommand": "apt-get update && apt-get install -y postgresql-client"
+
+  // install anything you need once the container is up
+  "postCreateCommand": "pip install --upgrade pip psycopg2-binary",
+
+  // a couple of handy VS Code extensions
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-azuretools.vscode-docker"
+      ]
+    }
+  }
 }
