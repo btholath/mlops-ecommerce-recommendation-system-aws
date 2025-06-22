@@ -1,16 +1,9 @@
+# Regenerating the script with automatic detection of region/account ID and Glue database creation
 
 """
-secure_arch_sample_autocreate.py
+secure_arch_sample_autocreate_v2.py
 
-This script:
-- Creates a KMS key
-- Creates an S3 bucket with encryption
-- Requests an ACM certificate
-- Creates an RDS instance (if not exists) and snapshot
-- Tags a Glue database
-- Sets up a CloudWatch log group
-
-Requires: boto3, python-dotenv
+Creates AWS resources for secure architecture and ensures dependencies exist.
 """
 
 import boto3
@@ -20,12 +13,15 @@ from dotenv import load_dotenv
 import json
 from botocore.exceptions import ClientError
 
-# Load environment variables and configure logging
+# Load environment and set logging
 load_dotenv()
 REGION = os.getenv("AWS_REGION", "us-east-1")
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s: %(message)s")
 
-# Initialize clients
+# Clients
+sts = boto3.client('sts')
+ACCOUNT_ID = sts.get_caller_identity()['Account']
+
 kms = boto3.client('kms', region_name=REGION)
 s3 = boto3.client('s3', region_name=REGION)
 rds = boto3.client('rds', region_name=REGION)
@@ -96,12 +92,28 @@ def create_rds_snapshot(instance_id, snapshot_id):
         )
         logging.info(f"RDS Snapshot Created: {response['DBSnapshot']['DBSnapshotIdentifier']}")
 
+def ensure_glue_database(database_name):
+    try:
+        glue.get_database(Name=database_name)
+        logging.info(f"Glue database already exists: {database_name}")
+    except glue.exceptions.EntityNotFoundException:
+        glue.create_database(
+            DatabaseInput={
+                'Name': database_name,
+                'Description': 'Database for secure architecture'
+            }
+        )
+        logging.info(f"Glue database created: {database_name}")
+
 def tag_glue_database(resource_arn):
-    glue.tag_resource(
-        ResourceArn=resource_arn,
-        TagsToAdd={'Classification': 'Confidential', 'Retention': '1-year'}
-    )
-    logging.info("Tagged Glue resource for classification.")
+    try:
+        glue.tag_resource(
+            ResourceArn=resource_arn,
+            TagsToAdd={'Classification': 'Confidential', 'Retention': '1-year'}
+        )
+        logging.info(f"Tagged Glue resource: {resource_arn}")
+    except ClientError as e:
+        logging.error(f"Failed to tag Glue resource: {e}")
 
 def create_log_group(log_group_name):
     try:
@@ -109,7 +121,6 @@ def create_log_group(log_group_name):
     except ClientError as e:
         if e.response['Error']['Code'] == 'ResourceAlreadyExistsException':
             logging.info(f"Log group already exists: {log_group_name}")
-            return
         else:
             raise
     logs.put_retention_policy(logGroupName=log_group_name, retentionInDays=90)
@@ -121,5 +132,8 @@ if __name__ == "__main__":
     request_acm_certificate("example.com")
     create_rds_instance("ml-database-instance")
     create_rds_snapshot("ml-database-instance", "ml-database-snapshot")
-    tag_glue_database("arn:aws:glue:region:account-id:database/my-db")
+    glue_db_name = "my-db"
+    ensure_glue_database(glue_db_name)
+    glue_arn = f"arn:aws:glue:{REGION}:{ACCOUNT_ID}:database/{glue_db_name}"
+    tag_glue_database(glue_arn)
     create_log_group("/ml/data/access")
