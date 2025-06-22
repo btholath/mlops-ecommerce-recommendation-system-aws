@@ -115,9 +115,75 @@ sudo apt-get install -y docker.io postgresql-client
 # still inside the dev-container shell
 sudo apt-get update -y
 sudo apt-get install -y docker-compose-plugin
+# make sure the apt index is up to date
+sudo apt-get update
+
+# Docker Compose v2 (adds the `docker compose` sub-command)
+sudo apt-get install -y docker-compose-plugin
+
+# Postgres client tools (psql, pg_isready, pg_dump, etc.)
+sudo apt-get install -y postgresql-client
 
 # sanity-check
 docker compose version          # → Docker Compose X.Y.Z
+
+# ---------------------------------------
+# 1. Add the Docker APT repository
+# ---------------------------------------
+# 0. House-keeping: make sure basic crypto utils are present
+sudo apt-get update
+sudo apt-get install -y ca-certificates curl gnupg lsb-release
+
+# 1. Add Docker’s GPG key (one-time)
+sudo install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/debian/gpg \
+  | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+
+# 2. Add the Docker repo for your debian release (bookworm)
+echo \
+  "deb [arch=$(dpkg --print-architecture) \
+  signed-by=/etc/apt/keyrings/docker.gpg] \
+  https://download.docker.com/linux/debian \
+  $(lsb_release -cs) stable" \
+  | sudo tee /etc/apt/sources.list.d/docker.list >/dev/null
+
+sudo apt-get update
+
+# Docker Compose v2 *plugin* (makes `docker compose` work)
+sudo apt-get install -y docker-compose-plugin
+
+# Postgres client utilities (psql, pg_isready, pg_dump, …)
+sudo apt-get install -y postgresql-client
+
+sudo apt-get install -y docker-compose   # installs /usr/bin/docker-compose v1.29
+
+# stop & remove the old one
+sudo docker compose -f .devcontainer/docker-compose.yml stop db
+sudo docker compose -f .devcontainer/docker-compose.yml rm -f db
+
+# bring it up again with the new port
+sudo docker compose -f .devcontainer/docker-compose.yml up -d db
+
+sudo docker exec -it 7b3c8bf4e7fa pg_isready -U user
+/var/run/postgresql:5432 - accepting connections
+
+export PGPASSWORD=pass
+psql -h localhost -p 5432 -U user -d devdb
+
+
+# any container that publishes 5432?
+sudo docker ps --filter "publish=5432"
+
+# or, more generally
+sudo lsof -i -P -n | grep ":5432"
+
+
+# Done – verify
+docker compose version     # → Docker Compose version v2.x
+psql     --version         # → 15.x
+pg_isready --version       # → 15.x
+
+
 
 
 docker --version          # should print the Docker client version
@@ -128,3 +194,23 @@ pg_isready -h localhost
 docker compose ps
 pg_isready -h localhost -p 5432   # → /var/run/postgresql:5432 - accepting connections
 psql -h localhost -U user -d devdb
+
+
+the Docker host.
+Your app container and the db container sit side-by-side on the
+devcontainer_backend bridge network, so they talk to each other through that
+network, not through 127.0.0.1.
+
+Think of it like this
+┌─────────────┐            hostname=app  (your VS Code terminal runs here)
+│ devcontainer│──bridge──▶ hostname=db   (Postgres lives here)
+└─────────────┘
+
+# [1] Connect with the service name (db)
+# in the Codespace terminal (no sudo required)
+export PGPASSWORD=pass
+psql -h db -U user -d devdb          # ← works
+Docker Compose automatically puts a DNS entry for each service on the shared network, so db resolves to the container’s IP.
+
+# [2] Connect with the container name (also works)
+psql -h devcontainer-db-1 -U user -d devdb
