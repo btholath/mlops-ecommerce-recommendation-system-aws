@@ -1,16 +1,20 @@
 import logging
 import boto3
 import sagemaker
-from sagemaker import get_execution_role
+#from sagemaker import get_execution_role
 from sagemaker.inputs import TrainingInput
 from sagemaker.estimator import Estimator
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
 # Setup logging
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 
 session = sagemaker.Session()
 region = session.boto_region_name
-role = get_execution_role()
+#role = get_execution_role()
+role = os.getenv("SAGEMAKER_EXECUTION_ROLE")
 bucket = session.default_bucket()
 prefix = "xgboost-builtin-example"
 
