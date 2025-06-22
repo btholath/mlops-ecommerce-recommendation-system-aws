@@ -1,17 +1,16 @@
 {
-  "name": "My Codespace",
-
-  // point to the Compose file inside .devcontainer
+  "name": "Python + Postgres Codespace",
   "dockerComposeFile": "docker-compose.yml",
-  "service": "app",                // ← matches the new service above
+  "service": "app",
   "workspaceFolder": "/workspace",
-
   "forwardPorts": [5432],
 
-  "features": {
-    "ghcr.io/devcontainers/features/docker-cli:1": {},
-    "ghcr.io/devcontainers/features/postgres-cli:1": { "version": "16" }
-  },
-
-  "postCreateCommand": "pip install --upgrade pip psycopg2-binary"
+  "postCreateCommand": [
+    // Docker Compose v2 plugin (inside the container)
+    "sudo apt-get update && sudo apt-get install -y docker-compose-plugin",
+    // Postgres client
+    "sudo apt-get install -y postgresql-client",
+    // Python libs
+    "pip install --upgrade pip psycopg2-binary"
+  ]
 }
